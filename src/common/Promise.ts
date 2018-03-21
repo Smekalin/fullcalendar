@@ -1,10 +1,10 @@
-import * as $ from 'jquery'
+import * as $ from 'jquery/dist/jquery.slim'
 
 
 const PromiseStub = {
 
   construct: function(executor) {
-    let deferred = $.Deferred()
+    let deferred = ($ as any).Deferred()
     let promise = deferred.promise()
 
     if (typeof executor === 'function') {
@@ -24,7 +24,7 @@ const PromiseStub = {
   },
 
   resolve: function(val) {
-    let deferred = $.Deferred().resolve(val)
+    let deferred = ($ as any).Deferred().resolve(val)
     let promise = deferred.promise()
 
     attachImmediatelyResolvingThen(promise, val)
@@ -33,7 +33,7 @@ const PromiseStub = {
   },
 
   reject: function() {
-    let deferred = $.Deferred().reject()
+    let deferred = ($ as any).Deferred().reject()
     let promise = deferred.promise()
 
     attachImmediatelyRejectingThen(promise)

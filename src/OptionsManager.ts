@@ -1,4 +1,4 @@
-import * as $ from 'jquery'
+import * as $ from 'jquery/dist/jquery.slim'
 import { firstDefined } from './util'
 import { globalDefaults, rtlDefaults, mergeOptions } from './options'
 import { localeOptionHash, populateInstanceComputableOptions } from './locale'
@@ -17,7 +17,7 @@ export default class OptionsManager extends Model {
   constructor(_calendar, overrides) {
     super()
     this._calendar = _calendar
-    this.overrides = $.extend({}, overrides) // make a copy
+    this.overrides = ($ as any).extend({}, overrides) // make a copy
     this.dynamicOverrides = {}
     this.compute()
   }

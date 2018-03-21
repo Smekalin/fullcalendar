@@ -1,4 +1,4 @@
-import * as $ from 'jquery'
+import * as $ from 'jquery/dist/jquery.slim'
 import * as moment from 'moment'
 import * as exportHooks from './exports'
 import { mergeOptions, globalDefaults, englishDefaults } from './options'
@@ -118,7 +118,7 @@ const instanceComputableOptions = {
 
 // TODO: make these computable properties in optionsManager
 export function populateInstanceComputableOptions(options) {
-  $.each(instanceComputableOptions, function(name, func) {
+  ($ as any).each(instanceComputableOptions, function(name, func) {
     if (options[name] == null) {
       options[name] = func(options)
     }
@@ -138,7 +138,7 @@ export function datepickerLocale(localeCode, dpLocaleCode, dpOptions) {
   fcOptions.weekNumberTitle = dpOptions.weekHeader
 
   // compute some more complex options from datepicker
-  $.each(dpComputableOptions, function(name, func) {
+  ($ as any).each(dpComputableOptions, function(name, func) {
     fcOptions[name] = func(dpOptions)
   })
 
@@ -180,8 +180,8 @@ export function locale(localeCode, newFcOptions) {
   // compute locale options that weren't defined.
   // always do this. newFcOptions can be undefined when initializing from i18n file,
   // so no way to tell if this is an initialization or a default-setting.
-  momOptions = getMomentLocaleData(localeCode) // will fall back to en
-  $.each(momComputableOptions, function(name, func) {
+  momOptions = getMomentLocaleData(localeCode); // will fall back to en
+  ($ as any).each(momComputableOptions, function(name, func) {
     if (fcOptions[name] == null) {
       fcOptions[name] = (func)(momOptions, fcOptions)
     }

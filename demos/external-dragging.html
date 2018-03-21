@@ -5,7 +5,7 @@
 <link href='../dist/fullcalendar.css' rel='stylesheet' />
 <link href='../dist/fullcalendar.print.css' rel='stylesheet' media='print' />
 <script src='../node_modules/moment/moment.js'></script>
-<script src='../node_modules/jquery/dist/jquery.js'></script>
+<script src='../node_modules/jquery/dist/jquery.slim.min.js'></script>
 <script src='../node_modules/components-jqueryui/jquery-ui.js'></script>
 <script src='../dist/fullcalendar.js'></script>
 <script>
@@ -25,11 +25,15 @@
       });
 
       // make the event draggable using jQuery UI
-      $(this).draggable({
-        zIndex: 999,
-        revert: true,      // will cause the event to go back to its
-        revertDuration: 0  //  original position after the drag
-      });
+
+      // TODO: Solve problem "Uncaught TypeError: Cannot read property 'step' of undefined"
+
+      // TODO: External dragging
+      // $(this).draggable({
+      //   zIndex: 999,
+      //   revert: true,      // will cause the event to go back to its
+      //   revertDuration: 0  //  original position after the drag
+      // });
 
     });
 

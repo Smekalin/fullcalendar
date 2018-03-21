@@ -1,5 +1,5 @@
 import * as moment from 'moment'
-import * as $ from 'jquery'
+import * as $ from 'jquery/dist/jquery.slim'
 
 
 /* FullCalendar-specific DOM Utilities
@@ -409,7 +409,7 @@ export function parseFieldSpecs(input) {
     tokens = input.split(/\s*,\s*/)
   } else if (typeof input === 'function') {
     tokens = [ input ]
-  } else if ($.isArray(input)) {
+  } else if (Array.isArray(input)) {
     tokens = input
   }
 
@@ -476,7 +476,7 @@ export function flexibleCompare(a, b) {
   if (a == null) {
     return 1
   }
-  if ($.type(a) === 'string' || $.type(b) === 'string') {
+  if (typeof a === 'string' || typeof b === 'string') {
     return String(a).localeCompare(String(b))
   }
   return a - b
@@ -729,7 +729,7 @@ export function hasOwnProp(obj, name) {
 
 
 export function applyAll(functions, thisObj, args) {
-  if ($.isFunction(functions)) {
+  if (($ as any).isFunction(functions)) {
     functions = [ functions ]
   }
   if (functions) {
@@ -823,9 +823,9 @@ export function stripHtmlEntities(text) {
 // Given a hash of CSS properties, returns a string of CSS.
 // Uses property names as-is (no camel-case conversion). Will not make statements for null/undefined values.
 export function cssToStr(cssProps) {
-  let statements = []
+  let statements = [];
 
-  $.each(cssProps, function(name, val) {
+  ($ as any).each(cssProps, function(name, val) {
     if (val != null) {
       statements.push(name + ':' + val)
     }
@@ -838,9 +838,9 @@ export function cssToStr(cssProps) {
 // Given an object hash of HTML attribute names to values,
 // generates a string that can be injected between < > in HTML
 export function attrsToStr(attrs) {
-  let parts = []
+  let parts = [];
 
-  $.each(attrs, function(name, val) {
+  ($ as any).each(attrs, function(name, val) {
     if (val != null) {
       parts.push(name + '="' + htmlEscape(val) + '"')
     }

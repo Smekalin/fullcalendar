@@ -11,7 +11,7 @@ after class:
   ListenerMixin.mixInto(TheClass)
 */
 
-import * as $ from 'jquery'
+import * as $ from 'jquery/dist/jquery.slim'
 import Mixin from './Mixin'
 
 export interface ListenerInterface {
@@ -46,7 +46,7 @@ export default class ListenerMixin extends Mixin implements ListenerInterface {
     } else if (typeof arg === 'string') {
       other.on(
         arg + '.' + this.getListenerNamespace(), // use event namespacing to identify this object
-        $.proxy(callback, this) // always use `this` context
+        ($ as any).proxy(callback, this) // always use `this` context
           // the usually-undesired jQuery guid behavior doesn't matter,
           // because we always unbind via namespace
       )

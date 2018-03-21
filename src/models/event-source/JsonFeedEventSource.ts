@@ -50,7 +50,7 @@ export default class JsonFeedEventSource extends EventSource {
     this.calendar.pushLoading()
 
     return Promise.construct((onResolve, onReject) => {
-      $.ajax($.extend(
+      $.ajax(($ as any).extend(
         {}, // destination
         JsonFeedEventSource.AJAX_DEFAULTS,
         ajaxSettings,
@@ -65,7 +65,7 @@ export default class JsonFeedEventSource extends EventSource {
             if (rawEventDefs) {
               callbackRes = applyAll(onSuccess, this, [ rawEventDefs, status, xhr ]) // redirect `this`
 
-              if ($.isArray(callbackRes)) {
+              if (Array.isArray(callbackRes)) {
                 rawEventDefs = callbackRes
               }
 
@@ -111,7 +111,7 @@ export default class JsonFeedEventSource extends EventSource {
     }
 
     // retrieve any outbound GET/POST $.ajax data from the options
-    if ($.isFunction(ajaxSettings.data)) {
+    if (($ as any).isFunction(ajaxSettings.data)) {
       // supplied as a function that returns a key/value object
       customRequestParams = ajaxSettings.data()
     } else {
@@ -119,7 +119,7 @@ export default class JsonFeedEventSource extends EventSource {
       customRequestParams = ajaxSettings.data || {}
     }
 
-    $.extend(params, customRequestParams)
+    ($ as any).extend(params, customRequestParams)
 
     params[startParam] = start.format()
     params[endParam] = end.format()

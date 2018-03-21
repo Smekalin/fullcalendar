@@ -5,12 +5,12 @@
 <link href='../dist/fullcalendar.css' rel='stylesheet' />
 <link href='../dist/fullcalendar.print.css' rel='stylesheet' media='print' />
 <script src='../node_modules/moment/moment.js'></script>
-<script src='../node_modules/jquery/dist/jquery.js'></script>
+<script src='../node_modules/jquery/dist/jquery.slim.min.js'></script>
 <script src='../dist/fullcalendar.js'></script>
 <script>
-
+  
+  console.log('GET CALENDAR', $('#calendar').fullCalendar)
   $(document).ready(function() {
-
     $('#calendar').fullCalendar({
       header: {
         left: 'prev,next today',

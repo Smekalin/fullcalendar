@@ -1,4 +1,4 @@
-import * as $ from 'jquery'
+import * as $ from 'jquery/dist/jquery.slim'
 import * as moment from 'moment'
 import * as exportHooks from '../../exports'
 import { disableCursor, enableCursor } from '../../util'
@@ -61,7 +61,7 @@ export default class ExternalDropping extends Interaction {
       // Test that the dragged element passes the dropAccept selector or filter function.
       // FYI, the default is "*" (matches all)
       accept = this.opt('dropAccept')
-      if ($.isFunction(accept) ? accept.call(el[0], el) : el.is(accept)) {
+      if (($ as any).isFunction(accept) ? accept.call(el[0], el) : el.is(accept)) {
         if (!this.isDragging) { // prevent double-listening if fired twice
           this.listenToExternalDrag(el, ev, ui)
         }
@@ -175,7 +175,7 @@ export default class ExternalDropping extends Interaction {
     }
 
     eventDef = SingleEventDef.parse(
-      $.extend({}, meta.eventProps, {
+      ($ as any).extend({}, meta.eventProps, {
         start: start,
         end: end
       }),
@@ -212,7 +212,7 @@ function getDraggedElMeta(el) {
 
   if (eventProps) {
     if (typeof eventProps === 'object') {
-      eventProps = $.extend({}, eventProps) // make a copy
+      eventProps = ($ as any).extend({}, eventProps) // make a copy
     } else { // something like 1 or true. still signal event creation
       eventProps = {}
     }

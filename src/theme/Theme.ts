@@ -1,4 +1,4 @@
-import * as $ from 'jquery'
+import * as $ from 'jquery/dist/jquery.slim'
 
 
 export default class Theme {
@@ -33,8 +33,8 @@ export default class Theme {
     let iconClassesCopy
     let buttonName
 
-    if ($.isPlainObject(iconOverrideHash)) {
-      iconClassesCopy = $.extend({}, this.iconClasses)
+    if (($ as any).isPlainObject(iconOverrideHash)) {
+      iconClassesCopy = ($ as any).extend({}, this.iconClasses)
 
       for (buttonName in iconOverrideHash) {
         iconClassesCopy[buttonName] = this.applyIconOverridePrefix(

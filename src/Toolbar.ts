@@ -1,4 +1,4 @@
-import * as $ from 'jquery'
+import * as $ from 'jquery/dist/jquery.slim'
 import { htmlEscape } from './util'
 
 
@@ -66,12 +66,12 @@ export default class Toolbar {
     let calendarButtonText = optionsManager.get('buttonText') || {}
 
     if (buttonStr) {
-      $.each(buttonStr.split(' '), (i, buttonGroupStr) => {
+      ($ as any).each(buttonStr.split(' '), (i, buttonGroupStr) => {
         let groupChildren = $()
         let isOnlyButtons = true
         let groupEl
 
-        $.each(buttonGroupStr.split(','), (j, buttonName) => {
+        ($ as any).each(buttonGroupStr.split(','), (j, buttonName) => {
           let customButtonProps
           let viewSpec
           let buttonClick

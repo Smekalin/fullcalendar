@@ -1,4 +1,4 @@
-import * as $ from 'jquery'
+import * as $ from 'jquery/dist/jquery.slim'
 import * as moment from 'moment'
 import EventDef from './EventDef'
 import EventInstance from './EventInstance'
@@ -84,7 +84,7 @@ export default class RecurringEventDef extends EventDef {
     }
 
     if (this.dowHash) {
-      def.dowHash = $.extend({}, this.dowHash)
+      def.dowHash = ($ as any).extend({}, this.dowHash)
     }
 
     return def

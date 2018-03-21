@@ -1,4 +1,4 @@
-import * as $ from 'jquery'
+import * as $ from 'jquery/dist/jquery.slim'
 import * as exportHooks from '../exports'
 import { default as EmitterMixin, EmitterInterface } from './EmitterMixin'
 import { default as ListenerMixin, ListenerInterface } from './ListenerMixin'
@@ -82,7 +82,7 @@ export default class GlobalEmitter {
     window.addEventListener(
       'touchmove',
       this.handleTouchMoveProxy = (ev) => {
-        this.handleTouchMove($.Event(ev as any))
+        this.handleTouchMove(($ as any).Event(ev as any))
       },
       { passive: false } as any // allows preventDefault()
     )
@@ -93,7 +93,7 @@ export default class GlobalEmitter {
     window.addEventListener(
       'scroll',
       this.handleScrollProxy = (ev) => {
-        this.handleScroll($.Event(ev as any))
+        this.handleScroll(($ as any).Event(ev as any))
       },
       true // useCapture
     )

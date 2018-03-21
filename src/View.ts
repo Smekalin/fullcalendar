@@ -1,4 +1,4 @@
-import * as $ from 'jquery'
+import * as $ from 'jquery/dist/jquery.slim'
 import * as moment from 'moment'
 import { parseFieldSpecs, proxy, isPrimaryMouseButton } from './util'
 import RenderQueue from './common/RenderQueue'
@@ -496,9 +496,9 @@ export default abstract class View extends InteractiveDateComponent {
 
 
   addScroll(scroll) {
-    let queuedScroll = this.queuedScroll || (this.queuedScroll = {})
+    let queuedScroll = this.queuedScroll || (this.queuedScroll = {});
 
-    $.extend(queuedScroll, scroll)
+    ($ as any).extend(queuedScroll, scroll)
   }
 
 
@@ -519,7 +519,7 @@ export default abstract class View extends InteractiveDateComponent {
     let scroll = {}
 
     if (this.isDatesRendered) {
-      $.extend(scroll, this.queryDateScroll())
+      ($ as any).extend(scroll, this.queryDateScroll())
     }
 
     return scroll
@@ -528,7 +528,7 @@ export default abstract class View extends InteractiveDateComponent {
 
   applyScroll(scroll) {
     if (scroll.isDateInit && this.isDatesRendered) {
-      $.extend(scroll, this.computeInitialDateScroll())
+      ($ as any).extend(scroll, this.computeInitialDateScroll())
     }
 
     if (this.isDatesRendered) {
@@ -915,7 +915,7 @@ export default abstract class View extends InteractiveDateComponent {
 
     for (i = 0; i < 7; i++) {
       if (
-        !(isHiddenDayHash[i] = $.inArray(i, hiddenDays) !== -1)
+        !(isHiddenDayHash[i] = hiddenDays.indexOf(i) !== -1)
       ) {
         dayCnt++
       }

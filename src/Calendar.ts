@@ -1,4 +1,4 @@
-import * as $ from 'jquery'
+import * as $ from 'jquery/dist/jquery.slim'
 import * as moment from 'moment'
 import { capitaliseFirstLetter, debounce } from './util'
 import { globalDefaults, englishDefaults, rtlDefaults } from './options'
@@ -106,10 +106,10 @@ export default class Calendar {
     let context
     let args
 
-    if ($.isPlainObject(triggerInfo)) {
+    if (($ as any).isPlainObject(triggerInfo)) {
       context = triggerInfo.context
       args = triggerInfo.args
-    } else if ($.isArray(triggerInfo)) {
+    } else if (Array.isArray(triggerInfo)) {
       args = triggerInfo
     }
 
@@ -1308,7 +1308,7 @@ ListenerMixin.mixInto(Calendar)
 function filterLegacyEventInstances(legacyEventInstances, legacyQuery) {
   if (legacyQuery == null) {
     return legacyEventInstances
-  } else if ($.isFunction(legacyQuery)) {
+  } else if (($ as any).isFunction(legacyQuery)) {
     return legacyEventInstances.filter(legacyQuery)
   } else { // an event ID
     legacyQuery += '' // normalize to string

@@ -43,7 +43,7 @@ export default class GcalEventSource extends EventSource {
     this.calendar.pushLoading()
 
     return Promise.construct((onResolve, onReject) => {
-      $.ajax($.extend(
+      $.ajax(($ as any).extend(
         {}, // destination
         JsonFeedEventSource.AJAX_DEFAULTS,
         ajaxSettings,
@@ -67,7 +67,7 @@ export default class GcalEventSource extends EventSource {
 
               successRes = applyAll(onSuccess, this, [ responseData, status, xhr ]) // passthru
 
-              if ($.isArray(successRes)) {
+              if (Array.isArray(successRes)) {
                 rawEventDefs = successRes
               }
 
@@ -142,7 +142,7 @@ export default class GcalEventSource extends EventSource {
       end = end.clone().utc().add(1, 'day')
     }
 
-    params = $.extend(
+    params = ($ as any).extend(
       this.ajaxSettings.data || {},
       {
         key: apiKey,
@@ -207,7 +207,7 @@ export default class GcalEventSource extends EventSource {
     if (!this.ajaxSettings) {
       this.ajaxSettings = {}
     }
-    $.extend(this.ajaxSettings, rawProps)
+    ($ as any).extend(this.ajaxSettings, rawProps)
   }
 
 }

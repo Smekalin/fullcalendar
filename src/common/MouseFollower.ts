@@ -1,4 +1,4 @@
-import * as $ from 'jquery'
+import * as $ from 'jquery/dist/jquery.slim'
 import {
   getEvY,
   getEvX,
@@ -70,7 +70,6 @@ export default class MouseFollower {
   // Causes the element to stop following the mouse. If shouldRevert is true, will animate back to original position.
   // `callback` gets invoked when the animation is complete. If no animation, it is invoked immediately.
   stop(shouldRevert, callback) {
-    let revertDuration = this.options.revertDuration
 
     const complete = () => { // might be called by .animate(), which might change `this` context
       this.isAnimating = false
@@ -87,22 +86,10 @@ export default class MouseFollower {
       this.isFollowing = false
 
       this.stopListeningTo($(document))
-
-      if (shouldRevert && revertDuration && !this.isHidden) { // do a revert animation?
-        this.isAnimating = true
-        this.el.animate({
-          top: this.top0,
-          left: this.left0
-        }, {
-          duration: revertDuration,
-          complete: complete
-        })
-      } else {
-        complete()
-      }
+      complete()
     }
   }
-
+  
 
   // Gets the tracking element. Create it if necessary
   getEl() {

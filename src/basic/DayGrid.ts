@@ -1,4 +1,4 @@
-import * as $ from 'jquery'
+import * as $ from 'jquery/dist/jquery.slim'
 import { htmlEscape } from '../util'
 import CoordCache from '../common/CoordCache'
 import Popover from '../common/Popover'
@@ -746,7 +746,7 @@ export default class DayGrid extends InteractiveDateComponent {
 
       if (slicedRange) {
         newSegs.push(
-          $.extend({}, seg, {
+          ($ as any).extend({}, seg, {
             footprint: new EventFootprint(
               new ComponentFootprint(
                 slicedRange,

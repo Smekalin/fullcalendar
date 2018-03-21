@@ -1,4 +1,4 @@
-import * as $ from 'jquery'
+import * as $ from 'jquery/dist/jquery.slim'
 import * as moment from 'moment'
 import { attrsToStr, htmlEscape, dayIDs } from '../util'
 import momentExt from '../moment-ext'
@@ -663,7 +663,7 @@ export default abstract class DateComponent extends Component {
     let forceOff
     let finalOptions
 
-    if ($.isPlainObject(gotoOptions)) {
+    if (($ as any).isPlainObject(gotoOptions)) {
       date = gotoOptions.date
       type = gotoOptions.type
       forceOff = gotoOptions.forceOff

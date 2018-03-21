@@ -23,6 +23,7 @@
   "copyright": "2018 Adam Shaw",
   "dependencies": {
     "jquery": "2 - 3",
+    "jquery-slim": "^3.0.0",
     "moment": "^2.20.1"
   },
   "version": "0.0.0",

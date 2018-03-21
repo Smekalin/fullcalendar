@@ -15,10 +15,9 @@ import './types/jquery-hooks'
 
 
 ($ as any).fullCalendar = exportHooks
-export = exportHooks
+export = exportHooks;
 
-
-$.fn.fullCalendar = function(options?): (JQuery | any) {
+($ as any).fn.fullCalendar = function(options?): (JQuery | any) {
   let args = Array.prototype.slice.call(arguments, 1) // for a possible method call
   let res = this // what this function will return (this jQuery object by default)
 
@@ -41,7 +40,7 @@ $.fn.fullCalendar = function(options?): (JQuery | any) {
         }
       } else if (!calendar) {
         warn('Attempting to call a FullCalendar method on an element with no calendar.')
-      } else if ($.isFunction(calendar[options])) {
+      } else if (($ as any).isFunction(calendar[options])) {
         singleRes = calendar[options].apply(calendar, args)
 
         if (!i) {
@@ -62,3 +61,5 @@ $.fn.fullCalendar = function(options?): (JQuery | any) {
 
   return res
 }
+
+console.log('jquery calendar $: ', $('body').fullCalendar())

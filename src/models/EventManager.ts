@@ -1,4 +1,4 @@
-import * as $ from 'jquery'
+import * as $ from 'jquery/dist/jquery.slim'
 import { removeExact } from '../util'
 import EventPeriod from './EventPeriod'
 import ArrayEventSource from './event-source/ArrayEventSource'
@@ -125,7 +125,7 @@ export default class EventManager {
     // coerce into an array
     if (!matchInputs) {
       matchInputs = []
-    } else if (!$.isArray(matchInputs)) {
+    } else if (!($ as any).isArray(matchInputs)) {
       matchInputs = [ matchInputs ]
     }
 
@@ -170,7 +170,7 @@ export default class EventManager {
     matchInput = EventSourceParser.parse(matchInput, this.calendar)
     if (matchInput) {
 
-      return $.grep(sources, function(source) {
+      return ($ as any).grep(sources, function(source) {
         return isSourcesEquivalent(matchInput, source)
       })
     }
@@ -181,7 +181,7 @@ export default class EventManager {
   ID assumed to already be normalized
   */
   getSourceById(id) {
-    return $.grep(this.otherSources, function(source: any) {
+    return ($ as any).grep(this.otherSources, function(source: any) {
       return source.id && source.id === id
     })[0]
   }

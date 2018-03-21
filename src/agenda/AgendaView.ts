@@ -1,5 +1,5 @@
 import * as moment from 'moment'
-import * as $ from 'jquery'
+import * as $ from 'jquery/dist/jquery.slim'
 import {
   matchCellWidths,
   uncompensateScroll,

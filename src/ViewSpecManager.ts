@@ -1,5 +1,5 @@
 import * as moment from 'moment'
-import * as $ from 'jquery'
+import * as $ from 'jquery/dist/jquery.slim'
 import { viewHash } from './ViewRegistry'
 import { mergeProps, unitsDesc, computeDurationGreatestUnit } from './util'
 import { mergeOptions, globalDefaults } from './options'
@@ -41,11 +41,11 @@ export default class ViewSpecManager {
     let i
     let spec
 
-    if ($.inArray(unit, unitsDesc) !== -1) {
+    if (unitsDesc.indexOf(unit) !== -1) {
 
       // put views that have buttons first. there will be duplicates, but oh well
       viewTypes = this._calendar.header.getViewsWithButtons() // TODO: include footer as well?
-      $.each(viewHash, function(viewType) { // all views
+      ($ as any).each(viewHash, function(viewType) { // all views
         viewTypes.push(viewType)
       })
 

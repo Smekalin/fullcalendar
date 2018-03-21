@@ -1,4 +1,4 @@
-import * as $ from 'jquery'
+import * as $ from 'jquery/dist/jquery.slim'
 import * as moment from 'moment'
 import { removeExact, removeMatching } from '../util'
 import Promise from '../common/Promise'
@@ -192,7 +192,7 @@ export default class EventPeriod {
 
 
   removeAllEventDefs() {
-    let isEmpty = $.isEmptyObject(this.eventDefsByUid)
+    let isEmpty = ($ as any).isEmptyObject(this.eventDefsByUid)
 
     this.eventDefsByUid = {}
     this.eventDefsById = {}

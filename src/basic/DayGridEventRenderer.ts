@@ -1,4 +1,4 @@
-import * as $ from 'jquery'
+import * as $ from 'jquery/dist/jquery.slim'
 import { htmlEscape, cssToStr } from '../util'
 import EventRenderer from '../component/renderers/EventRenderer'
 
@@ -20,7 +20,7 @@ export default class DayGridEventRenderer extends EventRenderer {
 
   renderBgRanges(eventRanges) {
     // don't render timed background events
-    eventRanges = $.grep(eventRanges, function(eventRange: any) {
+    eventRanges = ($ as any).grep(eventRanges, function(eventRange: any) {
       return eventRange.eventDef.isAllDay()
     })
 

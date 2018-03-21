@@ -1,4 +1,4 @@
-import * as $ from 'jquery'
+import * as $ from 'jquery/dist/jquery.slim'
 import { compareByFieldSpecs, proxy } from '../../util'
 
 export default class EventRenderer {
