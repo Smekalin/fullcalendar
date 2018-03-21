@@ -1,4 +1,4 @@
-import * as $ from 'jquery'
+import * as $ from 'jquery-slim'
 import * as exportHooks from './exports'
 import { warn } from './util'
 import Calendar from './Calendar'
@@ -13,6 +13,8 @@ import './agenda/config'
 import './list/config'
 import './types/jquery-hooks'
 
+window['$'] = $
+window['JQuery'] = $;
 
 ($ as any).fullCalendar = exportHooks
 export = exportHooks;
@@ -61,5 +63,3 @@ export = exportHooks;
 
   return res
 }
-
-console.log('jquery calendar $: ', $('body').fullCalendar())
