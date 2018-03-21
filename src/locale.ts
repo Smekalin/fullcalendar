@@ -135,7 +135,7 @@ export function datepickerLocale(localeCode, dpLocaleCode, dpOptions) {
 
   // transfer some simple options from datepicker to fc
   fcOptions.isRTL = dpOptions.isRTL
-  fcOptions.weekNumberTitle = dpOptions.weekHeader
+  fcOptions.weekNumberTitle = dpOptions.weekHeader;
 
   // compute some more complex options from datepicker
   ($ as any).each(dpComputableOptions, function(name, func) {

@@ -16,7 +16,6 @@ export default class ViewSpecManager {
   constructor(optionsManager, _calendar) {
     this.optionsManager = optionsManager
     this._calendar = _calendar
-
     this.clearCache()
   }
 
@@ -44,7 +43,8 @@ export default class ViewSpecManager {
     if (unitsDesc.indexOf(unit) !== -1) {
 
       // put views that have buttons first. there will be duplicates, but oh well
-      viewTypes = this._calendar.header.getViewsWithButtons() // TODO: include footer as well?
+      viewTypes = this._calendar.header.getViewsWithButtons(); // TODO: include footer as well?
+
       ($ as any).each(viewHash, function(viewType) { // all views
         viewTypes.push(viewType)
       })

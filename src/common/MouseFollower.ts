@@ -89,7 +89,7 @@ export default class MouseFollower {
       complete()
     }
   }
-  
+
 
   // Gets the tracking element. Create it if necessary
   getEl() {
