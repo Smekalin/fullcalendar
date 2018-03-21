@@ -1,4 +1,4 @@
-import * as $ from 'jquery/dist/jquery.slim'
+import * as $ from 'jquery-slim'
 import { eventDefsToEventInstances } from '../models/event/util'
 import EventInstanceGroup from './event/EventInstanceGroup'
 import RecurringEventDef from './event/RecurringEventDef'

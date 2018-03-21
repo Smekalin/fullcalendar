@@ -1,4 +1,4 @@
-import * as $ from 'jquery/dist/jquery.slim'
+import * as $ from 'jquery-slim'
 import { htmlEscape } from '../util'
 import CoordCache from '../common/CoordCache'
 import Popover from '../common/Popover'

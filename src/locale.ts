@@ -1,4 +1,4 @@
-import * as $ from 'jquery/dist/jquery.slim'
+import * as $ from 'jquery-slim'
 import * as moment from 'moment'
 import * as exportHooks from './exports'
 import { mergeOptions, globalDefaults, englishDefaults } from './options'

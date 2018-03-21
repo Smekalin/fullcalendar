@@ -1,5 +1,5 @@
 import * as moment from 'moment'
-import * as $ from 'jquery/dist/jquery.slim'
+import * as $ from 'jquery-slim'
 import { viewHash } from './ViewRegistry'
 import { mergeProps, unitsDesc, computeDurationGreatestUnit } from './util'
 import { mergeOptions, globalDefaults } from './options'

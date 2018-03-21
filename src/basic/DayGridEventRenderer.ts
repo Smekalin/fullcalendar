@@ -1,4 +1,4 @@
-import * as $ from 'jquery/dist/jquery.slim'
+import * as $ from 'jquery-slim'
 import { htmlEscape, cssToStr } from '../util'
 import EventRenderer from '../component/renderers/EventRenderer'
 

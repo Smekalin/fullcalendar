@@ -1,4 +1,4 @@
-import * as $ from 'jquery/dist/jquery.slim'
+import * as $ from 'jquery-slim'
 import { htmlEscape, subtractInnerElHeight } from '../util'
 import UnzonedRange from '../models/UnzonedRange'
 import View from '../View'

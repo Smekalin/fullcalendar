@@ -1,4 +1,4 @@
-import * as $ from 'jquery/dist/jquery.slim'
+import * as $ from 'jquery-slim'
 import * as moment from 'moment'
 import { attrsToStr, htmlEscape, dayIDs } from '../util'
 import momentExt from '../moment-ext'

@@ -1,4 +1,4 @@
-import * as $ from 'jquery/dist/jquery.slim'
+import * as $ from 'jquery-slim'
 import * as exportHooks from '../exports'
 import { default as EmitterMixin, EmitterInterface } from './EmitterMixin'
 import { default as ListenerMixin, ListenerInterface } from './ListenerMixin'

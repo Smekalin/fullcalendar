@@ -1,4 +1,4 @@
-import * as $ from 'jquery/dist/jquery.slim'
+import * as $ from 'jquery-slim'
 import * as moment from 'moment'
 import { parseFieldSpecs, proxy, isPrimaryMouseButton } from './util'
 import RenderQueue from './common/RenderQueue'

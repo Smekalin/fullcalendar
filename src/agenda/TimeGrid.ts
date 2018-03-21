@@ -1,4 +1,4 @@
-import * as $ from 'jquery/dist/jquery.slim'
+import * as $ from 'jquery-slim'
 import * as moment from 'moment'
 import { isInt, divideDurationByDuration, htmlEscape } from '../util'
 import InteractiveDateComponent from '../component/InteractiveDateComponent'

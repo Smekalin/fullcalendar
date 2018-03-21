@@ -1,4 +1,4 @@
-import * as $ from 'jquery/dist/jquery.slim'
+import * as $ from 'jquery-slim'
 import { getScrollbarWidths } from '../util'
 import Class from '../common/Class'
 

@@ -13,7 +13,7 @@ Options:
   - hide (callback)
 */
 
-import * as $ from 'jquery/dist/jquery.slim'
+import * as $ from 'jquery-slim'
 import { getScrollParent } from '../util'
 import { default as ListenerMixin, ListenerInterface } from './ListenerMixin'
 

@@ -1,4 +1,4 @@
-import * as $ from 'jquery/dist/jquery.slim'
+import * as $ from 'jquery-slim'
 import { disableCursor, enableCursor } from '../../util'
 import EventDefMutation from '../../models/event/EventDefMutation'
 import EventDefDateMutation from '../../models/event/EventDefDateMutation'

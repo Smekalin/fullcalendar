@@ -1,4 +1,4 @@
-import * as $ from 'jquery/dist/jquery.slim'
+import * as $ from 'jquery-slim'
 import { firstDefined } from './util'
 import { globalDefaults, rtlDefaults, mergeOptions } from './options'
 import { localeOptionHash, populateInstanceComputableOptions } from './locale'
