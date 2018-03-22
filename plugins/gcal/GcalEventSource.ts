@@ -42,6 +42,48 @@ export default class GcalEventSource extends EventSource {
 
     this.calendar.pushLoading()
 
+    // const urlStd = 'https://www.googleapis.com/calendar/v3/calendars/en.usa%23holiday%40group.v.calendar.google.com/events?key=AIzaSyDcnW6WejpTOCffshGDDb4neIrXVUA1EAE&timeMin=2018-02-24T00%3A00%3A00Z&timeMax=2018-04-09T00%3A00%3A00Z&singleEvents=true&maxResults=9999&_=1521701094319'
+
+    // return Promise.construct((resolve, reject) => {
+    //   window.fetch(url + $.param(requestParams), {
+    //     cache: 'no-cache',
+    //     headers: {
+    //       "Accept": "application/json"
+    //     },
+    //   })
+    //   .then(responseData => {
+    //     console.log('responseData: ', responseData)
+    //     // let rawEventDefs
+    //     // let successRes
+
+    //     this.calendar.popLoading()
+    //     const data = responseData.json()
+    //     resolve(responseData)
+    //     return data
+    //     // if (!responseData.ok) {
+    //     //   this.reportError('Google Calendar API: ' + responseData.status, responseData.statusText)
+    //     //   reject()
+    //     // } else if (responseData.items) {
+    //     //   const data = responseData.json()
+    //     //   rawEventDefs = this.gcalItemsToRawEventDefs(
+    //     //     responseData.items,
+    //     //     requestParams.timeZone
+    //     //   )
+
+    //     //   successRes = applyAll(onSuccess, this, [ responseData, status, xhr ]) // passthru
+
+    //     //   if (Array.isArray(successRes)) {
+    //     //     rawEventDefs = successRes
+    //     //   }
+
+    //     //   onResolve(this.parseEventDefs(rawEventDefs))
+    //     // }
+    //   })
+    //   .catch(err => {
+    //     reject(err)
+    //   })
+    // })
+
     return Promise.construct((onResolve, onReject) => {
       $.ajax(($ as any).extend(
         {}, // destination
@@ -118,7 +160,7 @@ export default class GcalEventSource extends EventSource {
   buildUrl() {
     return GcalEventSource.API_BASE + '/' +
       encodeURIComponent(this.googleCalendarId) +
-      '/events?callback=?' // jsonp
+      '/events?callback=?' // TODO: remove 'callback=?' (jsonp added callback=? in query string)
   }
 
 
